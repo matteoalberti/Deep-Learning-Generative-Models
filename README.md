@@ -94,6 +94,14 @@ To launch TensorBoard on a specific folder fill the Logdir field accordingly.
 \** Remember that the reservation is from 10am - 10pm CEST
 
 
+## Suggested readings
+
+- Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow - 2nd Edition, 2019, O'Reilly, ISBN: 9781492032649
+- TensorFlow official guide (https://www.tensorflow.org/guide)[https://www.tensorflow.org/guide]
+- TensorFlow official documentation (https://www.tensorflow.org/api_docs)[https://www.tensorflow.org/api_docs]
+- Keras official guides and docs (https://keras.io/)[https://keras.io/]
+
+
 ## Contacts
 
 Piero Coronica - pc620@cam.ac.uk\

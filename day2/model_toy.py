@@ -5,24 +5,27 @@ from tensorflow.keras import layers
 class Res_block(layers.Layer):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self.relu  = layers.ReLU()
+        self.relu1 = layers.ReLU()
+        self.relu2 = layers.ReLU()
+        
         
         self.bn1   = layers.BatchNormalization()
         self.bn2   = layers.BatchNormalization()
         self.add   = layers.Add()
         
     def build(self, input_size):
-        self.conv1 = layers.Conv2D(input_size[-1], 3, activation='relu', padding='same', use_bias=False)
-        self.conv2 = layers.Conv2D(input_size[-1], 3, activation='relu', padding='same', use_bias=False)
+        self.conv1 = layers.Conv2D(input_size[-1], 3, padding='same', use_bias=False)
+        self.conv2 = layers.Conv2D(input_size[-1], 3, padding='same', use_bias=False)
         super().build(input_size)
         
     def call(self, inputs):
         x = self.conv1(inputs)
         x = self.bn1(x)
-        x = self.relu(x)
+        x = self.relu1(x)
         x = self.conv2(x)
         x = self.bn2(x)
-        return self.add([x, inputs])
+        y = self.add([x, inputs])
+        return self.relu2(y)
     
 
 def get_toy_ResNet():
